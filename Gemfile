@@ -33,6 +33,10 @@ gem 'dotenv-rails'
 gem 'active_model_serializers'
 gem 'bcrypt'
 gem 'rubocop', require: false
+gem "sprockets", '3.6.3'
+gem "therubyracer"
+gem "less-rails"
+gem 'twitter-bootstrap-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
