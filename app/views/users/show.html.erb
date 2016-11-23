@@ -1,3 +1,7 @@
+<%= link_to 'Edit User', edit_user_path(@user) %>
+<%= link_to 'Back', users_path %>
+<%= link_to 'Delete User', user_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
 <p>
   <strong>Name</strong>
   <%= @user.name %>
@@ -11,6 +15,11 @@
   <%= @user.password %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %>
-<%= link_to 'Back', users_path %>
-<%= link_to 'Delete', user_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<h2>Images</h2>
+
+<p>
+  <% @user.images.each do |image| %>
+    <%= image.image_url %>
+  <% end %>
+</p>
+

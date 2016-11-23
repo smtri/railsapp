@@ -1,5 +1,6 @@
 # validations
 class User < ApplicationRecord
+  has_many :images
   validates :email, presence: true,
                     uniqueness: true,
                     length: {

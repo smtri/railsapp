@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'pg'
 gem 'dotenv-rails'
 gem 'active_model_serializers'
+gem 'carrierwave'
 gem 'bcrypt'
 gem 'rubocop', require: false
 gem "sprockets", '3.6.3'
