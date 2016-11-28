@@ -16,4 +16,5 @@ class User < ApplicationRecord
                          too_long: '%{count} characters is the max allowed',
                          too_short: '%{count} characters is the min allowed'
                        }
+  mount_uploader :image, ImageUploader
 end

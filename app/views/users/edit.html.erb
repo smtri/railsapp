@@ -3,3 +3,32 @@
 <%= render 'form' %>
 
 <%= link_to 'Back', users_path %>
+
+<h2>Load image</h2>
+
+<%= form_for ([@user, @user.images.build]) do |f| %>
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved
+    </h2>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+  </div>
+<% end %>
+<p>
+
+  <%= f.file_field :image %>
+  <% if f.object.image? %>
+    <%= image_tag f.object.image.thumb.url %>
+    <%= f.label :remove_image %>
+    <%= f.check_box :remove_image %>
+  <% end %>
+</p>
+<p>
+  <%= f.submit %>  
+</p>
+<% end %>

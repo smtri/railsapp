@@ -2,6 +2,8 @@
 <%= link_to 'Back', users_path %>
 <%= link_to 'Delete User', user_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
+<p id="notice"><%= notice %></p>
+
 <p>
   <strong>Name</strong>
   <%= @user.name %>
@@ -15,11 +17,11 @@
   <%= @user.password %>
 </p>
 
-<h2>Images</h2>
+<h3>Images</h3>
 
 <p>
   <% @user.images.each do |image| %>
-    <%= image.image_url %>
+    <%= image_tag(@user.image.image_url) unless @user.image.blank? %>
   <% end %>
 </p>
 
