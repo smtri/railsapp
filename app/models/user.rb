@@ -1,5 +1,6 @@
 # validations
 class User < ApplicationRecord
+  has_secure_password
   has_many :images
   validates :email, presence: true,
                     uniqueness: true,
@@ -9,7 +10,7 @@ class User < ApplicationRecord
                       too_long: '%{count} characters is the max allowed',
                       too_short: '%{count} characters is the min allowed'
                     }
-  validates :password, presence: true,
+  validates :password_digest, presence: true,
                        length: {
                          minimum: 4,
                          maximum: 20,
