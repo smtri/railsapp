@@ -1,7 +1,8 @@
 class ImagesController < ApplicationController
 
   def index
-    @image = Image.all
+    @user = User.find(params[:id])
+    @images = Image.all
   end
 
   def show
@@ -9,12 +10,13 @@ class ImagesController < ApplicationController
   end
 
   def new
+    @user = User.find(params[:user_id])
     @image = Image.new
   end
 
   def create
     @user = User.find(params[:user_id])
-    @image = @user.images.new(image_params)
+    @image = @user.images.create(image_params)
 
     if @image.save
       redirect_to user_path(@user)

@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @images = @user.images
   end
 
   def new
@@ -46,6 +47,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password_digest, :image)
+    params.require(:user).permit(:name, :email, :password, :image)
   end
 end

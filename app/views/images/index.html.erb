@@ -1,0 +1,9 @@
+<h3>Images</h3>
+
+<%= link_to 'Load image', new_user_image_path(@user.id) %>
+
+<p>
+  <%= @images.each do |i| %>
+      <%= image_tag i.image unless @user.image.blank? %>
+  <% end %>
+</p>
