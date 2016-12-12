@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
 
   def index
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     @images = Image.all
   end
 
@@ -34,7 +34,7 @@ class ImagesController < ApplicationController
 
   private
     def image_params
-      params.require(:image).permit(:user)
+      params.require(:image).permit(:image, :user)
     end
     
 end

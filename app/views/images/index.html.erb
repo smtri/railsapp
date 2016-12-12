@@ -4,6 +4,6 @@
 
 <p>
   <%= @images.each do |i| %>
-      <%= image_tag i.image unless @user.image.blank? %>
+      <% image_tag i.image_url %>
   <% end %>
 </p>
