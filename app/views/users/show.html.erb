@@ -12,17 +12,13 @@
   <strong>E-mail</strong>
   <%= @user.email %>
 </p>
-<p>
-  <strong>Password</strong>
-  <%= @user.password %>
-</p>
 
 <h3>Images</h3>
 
 <%= link_to 'Load image', new_user_image_path(@user.id) %>
 
 <p>
-  <%= @images.each do |i| %>
-      <%= image_tag i.image unless @user.image.blank? %>
+  <% @images.each do |i| %>
+      <%=  image_tag i.image unless i.image.blank? %>
   <% end %>
 </p>

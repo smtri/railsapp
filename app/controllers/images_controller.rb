@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
+  before_action :find_user
 
   def index
-    @user = User.find(params[:user_id])
     @images = Image.all
   end
 
@@ -10,12 +10,10 @@ class ImagesController < ApplicationController
   end
 
   def new
-    @user = User.find(params[:user_id])
     @image = Image.new
   end
 
   def create
-    @user = User.find(params[:user_id])
     @image = @user.images.create(image_params)
 
     if @image.save
@@ -26,13 +24,17 @@ class ImagesController < ApplicationController
   end
 
   def destroy
-    @image = Image.find(params[:id])
     @image.destroy
 
     redirect_to images_path    
   end
 
   private
+
+    def find_user
+      @user = User.find(params[:user_id])
+    end
+
     def image_params
       params.require(:image).permit(:image, :user)
     end
