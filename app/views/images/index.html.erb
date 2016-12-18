@@ -1,9 +1,12 @@
-<h3>Images</h3>
+<h3>Images of <%= @user.name %></h3>
 
 <%= link_to 'Load image', new_user_image_path(@user.id) %>
 
 <p>
-  <%= @images.each do |i| %>
-      <% image_tag i.image_url %>
+  <% @images.each do |i| %>
+      <%= image_tag i.image unless i.image.blank? %>
+      <%= link_to "Delete", user_image_path(i), :confirm => 'Are you sure?', :method => :delete %>
   <% end %>
 </p>
+
+<%= link_to 'Back', user_path(@user) %>

@@ -40,6 +40,11 @@ gem "less-rails"
 gem 'twitter-bootstrap-rails'
 gem 'mini_magick'
 gem 'pry-byebug'
+gem 'rspec-rails'
+gem 'factory_girl_rails'
+gem 'capybara'
+gem 'guard-rspec'
+gem 'rails-controller-testing'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

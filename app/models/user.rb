@@ -1,7 +1,10 @@
 # validations
 class User < ApplicationRecord
+
   has_secure_password
   has_many :images, dependent: :destroy
+
+  validates :name, presence: true
   validates :email, presence: true,
                     uniqueness: true,
                     length: {
@@ -17,5 +20,6 @@ class User < ApplicationRecord
                          too_long: '%{count} characters is the max allowed',
                          too_short: '%{count} characters is the min allowed'
                        }
+
   mount_uploader :image, ImageUploader
 end
