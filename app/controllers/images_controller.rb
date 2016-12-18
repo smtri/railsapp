@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
   before_action :find_user
-  
+
   def index
     @images = @user.images.all
   end
@@ -24,13 +24,13 @@ class ImagesController < ApplicationController
   end
 
   def destroy
-    @image = Image.find(params[:id])
     @image.destroy
 
     redirect_to images_path    
   end
 
   private
+
     def find_user
       @user = User.find(params[:user_id])
     end

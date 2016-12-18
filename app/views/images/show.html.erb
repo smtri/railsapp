@@ -1,4 +1,4 @@
-<%= link_to 'Back', user_images_path %>
+<%= link_to 'Back', user_path(@user) %>
 
 <%= image_tag @image.image unless @image.image.blank? %>
 
