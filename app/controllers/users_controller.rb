@@ -7,6 +7,8 @@ class UsersController < ApplicationController
 
   def show
     @images = @user.images
+    rescue ActiveRecord::RecordNotFound
+    return
   end
 
   def new
@@ -22,6 +24,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to @user
     else
+
       render 'new'
     end
   end
@@ -43,7 +46,7 @@ class UsersController < ApplicationController
   private
 
   def find_user
-    @user = User.find(params[:id]) or not_found
+    @user = User.find(params[:id])
   end
 
   def user_params

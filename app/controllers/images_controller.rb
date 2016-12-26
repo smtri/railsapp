@@ -23,10 +23,11 @@ class ImagesController < ApplicationController
     end
   end
 
+
   def destroy
     @image.destroy
 
-    redirect_to images_path    
+    redirect_to user_images_path
   end
 
   private

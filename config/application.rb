@@ -15,6 +15,7 @@ module Railsapp
       g.test_framework      :rspec, fixtures: true, views: false
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
+    #config.action_dispatch.show_exceptions = false
   end
 
 end

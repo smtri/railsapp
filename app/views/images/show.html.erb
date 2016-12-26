@@ -1,5 +1,8 @@
 <%= link_to 'Back', user_path(@user) %>
 
+
 <%= image_tag @image.image unless @image.image.blank? %>
+
+
 
 <%= link_to "Delete", @image, :confirm => 'Are you sure?', :method => :delete %>
