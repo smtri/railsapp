@@ -1,8 +1,5 @@
 <%= link_to 'Back', user_path(@user) %>
 
-
 <%= image_tag @image.image unless @image.image.blank? %>
-
-
-
-<%= link_to "Delete", @image, :confirm => 'Are you sure?', :method => :delete %>
+'
+<%= link_to 'Delete', user_image_path(@user, @image), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small btn-danger' %>
