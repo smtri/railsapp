@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
   before_action :find_user
+#  helper_method :rotate
 
   def index
     @images = @user.images.all
@@ -23,6 +24,15 @@ class ImagesController < ApplicationController
     end
   end
 
+  def update
+    i = Image.find(params[:id])
+    @image = MiniMagick::Image.new(i) do |i|
+      i.rotate "-90"
+      i.flip
+    end
+    @image.save
+    redirect_to user_images_path
+  end
 
   def destroy
     @image = Image.find(params[:id])
@@ -38,7 +48,7 @@ class ImagesController < ApplicationController
     end
 
     def image_params
-      params.require(:image).permit(:image, :user)
+      params.require(:image).permit(:image, :user, :rotated)
     end
     
 end

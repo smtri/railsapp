@@ -48,12 +48,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
   
-=begin
-  process :rotate_img
+=begin  process :rotate_img
+
   def rotate_img
-    manipulate! do |img|
-      img.rotate '-90'
-      img
+    if model.rotated.present? && model.rotated?
+      manipulate! do |img|
+        img.rotate '-90'
+        img
+      end
     end
   end
 =end
