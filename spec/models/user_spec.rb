@@ -3,8 +3,6 @@ require 'rspec/rails'
 
 describe User do
 
-  xit 'should do smth' do
-
-  end
+  it 'should do smth'
   
 end

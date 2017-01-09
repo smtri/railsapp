@@ -2,5 +2,5 @@
 <p>
 <%= image_tag @image.image unless @image.image.blank? %>
 </p>
-<%= link_to 'Rotate and flip image', user_image_path(@user, @image), method: :update %>
+<%= link_to 'Rotate image', user_image_path(@user.id, @image.id), method: :update %>
 <%= link_to 'Delete', user_image_path(@user, @image), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small btn-danger' %>

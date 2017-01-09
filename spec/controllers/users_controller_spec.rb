@@ -84,11 +84,18 @@ describe UsersController do
   end
 
   describe "destroy action" do 
-
-    xit "deletes user" do
+    before :each do
+      @user = create(:user)
     end
 
-    xit "shows error if user is not created and renders new" do
+    xit "deletes user" do
+      id = @user.id
+      delete :destroy, id: @user
+      get :show, id: id
+      expect(response.status).to eq 404
+    end
+
+    xit "shows error if user is not found and renders users" do
     end
 
   end

@@ -39,7 +39,9 @@ gem "therubyracer"
 gem "less-rails"
 gem 'twitter-bootstrap-rails'
 gem 'mini_magick'
-
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
 
 
 group :development, :test do
@@ -52,6 +54,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'rails-controller-testing'
   gem 'better_errors'
+  gem "binding_of_caller" 
 end
 
 group :development do

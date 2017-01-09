@@ -25,20 +25,22 @@ class ImagesController < ApplicationController
   end
 
   def update
-    i = Image.find(params[:id])
-    @image = MiniMagick::Image.new(i) do |i|
-      i.rotate "-90"
-      i.flip
-    end
-    @image.save
+    @image = Image.find(params[:id])
+    ImagesWorker.perform_async(@image.id)
     redirect_to user_images_path
   end
 
   def destroy
-    @image = Image.find(params[:id])
+=begin    @image = Image.find(params[:id])
     @image.destroy
 
     redirect_to user_images_path
+=end
+
+    @image = Image.find(params[:id])
+    ImagesWorker.perform_async(@image.id)
+    redirect_to user_images_path
+
   end
 
   private
