@@ -18,7 +18,7 @@
 <p>
   <% @images.each do |i| %>
   	<p>
-      <%= image_tag i.image.url(:thumb) unless i.image.blank? %>
+      <%= link_to (image_tag i.image.url(:thumb)), user_image_path(@user, i)  %>
       <%= link_to "See image", user_image_path(@user, i) %>
       </p>
   <% end %>
