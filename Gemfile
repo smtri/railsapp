@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'pg'
 gem 'dotenv-rails'
+gem 'responders'
 gem 'active_model_serializers'
 gem 'carrierwave'
 gem 'bcrypt'

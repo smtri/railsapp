@@ -1,0 +1,12 @@
+<h3>Images of <%= @user.name %></h3>
+
+<%= link_to 'Load image', new_api_v1_user_image_path(@user.id) %>
+
+<p>
+  <% @images.each do |i| %>
+      <%= image_tag i.image unless i.image.blank? %>
+      <%= link_to 'Delete', api_v1_user_image_path(@user, i), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-small btn-danger' %>
+  <% end %>
+</p>
+
+<%= link_to 'Back', api_v1_user_path(@user) %>

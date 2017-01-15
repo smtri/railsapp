@@ -9,8 +9,12 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  resources :users do
-    resources :images
+  namespace :api do
+    namespace :v1 do
+      resources :users do
+        resources :images
+      end
+    end
   end
 
   root 'welcome#index'

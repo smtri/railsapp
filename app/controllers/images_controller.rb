@@ -1,6 +1,5 @@
 class ImagesController < ApplicationController
   before_action :find_user
-#  helper_method :rotate
 
   def index
     @images = @user.images.all

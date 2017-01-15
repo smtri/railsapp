@@ -1,0 +1,25 @@
+<%= link_to 'Edit User', edit_api_v1_user_path(@user) %>
+<%= link_to 'Back', api_v1_users_path %>
+<%= link_to 'Delete User', api_v1_user_path, method: :delete, data: { confirm: 'Are you sure? All user photos will be deleted as well.' } %>
+
+<p>
+  <strong>Name</strong>
+  <%= @user.name %>
+</p>
+<p>
+  <strong>E-mail</strong>
+  <%= @user.email %>
+</p>
+
+<h3>Images</h3>
+<%= link_to 'See all user images', api_v1_user_images_path(@user.id) %>
+<%= link_to 'Load image', new_api_v1_user_image_path(@user.id) %>
+
+<p>
+  <% @images.each do |i| %>
+  	<p>
+      <%= link_to (image_tag i.image.url(:thumb)), api_v1_user_image_path(@user, i)  %>
+      <%= link_to "See image", api_v1_user_image_path(@user, i) %>
+      </p>
+  <% end %>
+</p>
